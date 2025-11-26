@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "Crypto Guard: Portfolio & SafeBrowse",
+  "version": "1.0.0",
+  "description": "Crypto portfolio tracker with built-in phishing and wallet protection.",
+
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+
+  "action": {
+    "default_title": "Crypto Guard",
+    "default_popup": "popup/popup.html"
+  },
+
+  "permissions": [
+    "storage"
+  ],
+
+  "host_permissions": [
+    "https://api.coingecko.com/*",
+    "<all_urls>"
+  ],
+
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "phishing/phishingRules.js",
+        "phishing/phishingUI.js",
+        "phishing/walletGuard.js",
+        "phishing/content.js"
+      ],
+      "run_at": "document_start"
+    }
+  ]
+}
