@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Crypto Guard: Portfolio & SafeBrowse",
+  "name": "Crypto Port and Guard",
   "version": "1.0.0",
   "description": "Crypto portfolio tracker with built-in phishing and wallet protection.",
 
@@ -38,6 +38,11 @@
         "phishing/walletGuard.js",
         "phishing/content.js"
       ],
+      "run_at": "document_start"
+    }
+  ]
+}
+
       "run_at": "document_start"
     }
   ]
